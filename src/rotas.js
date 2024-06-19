@@ -6,20 +6,20 @@ const verificaLogin = require('./filtros/verificaLogin');
 
 const rotas = express();
 
-// cadastro de usuario
-rotas.post('/usuarios', usuarios.cadastrarUsuario);
-
-// login
+// Login não precisa de verificação de login
 rotas.post('/login', login.login);
 
-// filtro para verificar usuario logado
+// Cadastro de usuário
+rotas.post('/usuarios', usuarios.cadastrarUsuario);
+
+// Middleware de verificação de login para rotas abaixo
 rotas.use(verificaLogin);
 
-// obter e atualizar perfil do usuario logado
+// Obter e atualizar perfil do usuário logado
 rotas.get('/perfil', usuarios.obterPerfil);
 rotas.put('/perfil', usuarios.atualizarPerfil);
 
-// crud de produtos
+// CRUD de produtos
 rotas.get('/produtos', produtos.listarProdutos);
 rotas.get('/produtos/:id', produtos.obterProduto);
 rotas.post('/produtos', produtos.cadastrarProduto);
