@@ -7,7 +7,7 @@ const verificaLogin = require('./filtros/verificaLogin');
 const rotas = express();
 
 rotas.get('/favicon.ico', (req, res) => {
-    res.sendFile(path.join(__dirname, 'caminho/para/seu/favicon.ico'));
+    res.status(204).end(); // Retorna uma resposta vazia com status 204 (No Content)
 });
 
 // Login não precisa de verificação de login
