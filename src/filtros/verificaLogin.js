@@ -6,7 +6,7 @@ const verificaLogin = async (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization || !authorization.startsWith('Bearer ')) {
-        return res.status(401).json('Não autorizado');
+        return res.status(401).json('Não autorizado!');
     }
 
     try {
