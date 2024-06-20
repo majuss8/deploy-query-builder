@@ -5,7 +5,7 @@ const senhaHash = require('../senhaHash');
 const verificaLogin = async (req, res, next) => {
     const { authorization } = req.headers;
 
-    if (!authorization) {
+    if (!authorization || !authorization.startsWith('Bearer ')) {
         return res.status(401).json('Não autorizado');
     }
 
@@ -25,6 +25,6 @@ const verificaLogin = async (req, res, next) => {
         console.error(error);
         return res.status(401).json('Token inválido');
     }
-}
+};
 
 module.exports = verificaLogin;
