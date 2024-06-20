@@ -6,6 +6,10 @@ const verificaLogin = require('./filtros/verificaLogin');
 
 const rotas = express();
 
+rotas.get('/favicon.ico', (req, res) => {
+    res.sendFile(path.join(__dirname, 'caminho/para/seu/favicon.ico'));
+});
+
 // Login não precisa de verificação de login
 rotas.post('/login', login.login);
 
