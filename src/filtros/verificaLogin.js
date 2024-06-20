@@ -5,7 +5,7 @@ const senhaHash = require('../senhaHash');
 const verificaLogin = async (req, res, next) => {
     const { authorization } = req.headers;
 
-    if (!authorization || !authorization.startsWith('Bearer ')) {
+    if (!authorization) {
         return res.status(401).json('Não autorizado');
     }
 
